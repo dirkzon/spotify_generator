@@ -1,0 +1,31 @@
+﻿@model SpotifyGen.Domain.PlaylistDTO;
+
+@foreach (var track in Model.tracks){
+   await Html.RenderPartialAsync("TrackBox", track);
+}
+
+<form asp-controller="Playlist" asp-action="PostPlaylist" method="POST">
+    <button class="click"><h4 class="txt"> Put playlist on account </h4></button>
+</form>
+
+<script>
+    function RemoveTrack(id){
+        $.ajax({
+            url: "@Url.Action("RemoveTrack", "Playlist")",
+            data: { "trackid": id },
+            success: function() {
+                var element = document.getElementById(id);
+                element.parentNode.removeChild(element);
+            },
+            error: function () {
+                alert("Error: cannot remove song from playlist");
+            }
+        });
+    }
+</script>
+
+<script>
+    function ChangeBackground(url) {
+        document.getElementById('backimg').src = url;
+    };
+</script>

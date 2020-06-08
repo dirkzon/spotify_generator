@@ -1,0 +1,78 @@
+﻿<div style="margin:10%">
+    <h1 class="txt">Search for artist:</h1>
+    <input autocomplete="off" placeholder="Favorite artist" class="input" type="text" id="artistinput" oninput="SearchArtist()" required>
+    <div id="artistsearchlist" style="text-align: center; width: min-content; margin: auto;"></div>
+</div>
+
+<div id="artistlist" style="text-align: center; width: min-content; margin: auto;"></div>
+
+<form asp-controller="Data" asp-action="CreatePlaylist" method="post">
+    <div style="margin:10%">
+        <h1 class="txt">Name of playlist:</h1>
+        <input placeholder="New playlist" class="input" type="text" name="name" id="name" required>
+        <br />
+    </div>
+
+    <div style="margin:10%">
+        <h1 class="txt">Amount of songs:</h1>
+        <input class="slider" type="range" name="amount" id="amount" max="50" min="1" />
+        <br />
+    </div>
+    <button class="click"> Create Playlist </button>
+</form>
+
+<script>
+    function SearchArtist() {
+        var input = document.getElementById("artistinput").value;
+        if (input != "") {
+        $.ajax({
+                url: "@Url.Action("SearchForArtist", "Data")",
+                data: {"artistname" : input},
+                success: function (result) {
+                    $("#artistsearchlist").empty();
+                    $("#artistsearchlist").append(result);
+                },
+            });
+        }
+    }
+</script>
+
+<script>
+    function AddArtistToList(name, id) {
+        $.ajax({
+            url: "@Url.Action("AddArtist", "Data")",
+            data: { "artistname": name, "artistid": id },
+            success: function(){
+                $("#artistsearchlist").empty();
+                $("#ErrorMessage").empty();
+                GetAllArtists()
+            }
+        });
+    }
+</script>
+
+<script>
+    function RemoveArtistFromList(id) {
+        $.ajax({
+        url: "@Url.Action("RemoveArtist", "Data")",
+            data: { "artistid": id },
+            success: function () {
+                GetAllArtists()
+            }
+        });
+    }
+</script>
+
+<script>
+    $(document).ready(GetAllArtists());
+
+    function GetAllArtists() {
+        $.ajax({
+        url: "@Url.Action("GetAllArtist", "Data")",
+        success: function (result) {
+            $("#artistlist").empty();
+            $("#artistlist").append(result);
+            }
+        });
+    }
+</script>

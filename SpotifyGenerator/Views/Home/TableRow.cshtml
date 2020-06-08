@@ -1,0 +1,11 @@
+﻿@using SpotifyGenerator.Domain.DataTransferObjects;
+@model DbPlaylistDTO
+
+<tr style="font-size: 30px;background-color:#9e9e9e">
+    <th class="txt" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;padding: 10px;">@Model.CreationDate</th>
+    <th class="txt" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;padding: 10px; max-width: 600px">
+        <a class="txt" target="_blank" href="https://open.spotify.com/playlist/@Model.PlaylistId">@Model.PlaylistName</a>
+        made by
+        <a class="txt" target="_blank" href="https://open.spotify.com/user/@Model.UserId">@Model.UserId</a>
+    </th>
+</tr>

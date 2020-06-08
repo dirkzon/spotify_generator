@@ -1,0 +1,18 @@
+﻿@using SpotifyGenerator.Domain.DataTransferObjects;
+@model IEnumerable<DbPlaylistDTO>
+
+
+<form asp-controller="Home" asp-action="SpotifyLogIn" method="POST">
+    <button class="click"><h4 > START! </h4></button>
+</form>
+
+<form asp-controller="Question" asp-action="Index" method="POST">
+    <button class="click"><h4> questions </h4></button>
+</form>
+
+<table style="border-collapse: separate; border-spacing: 3px 20px;">
+    @foreach (var playlist in Model.ToList())
+    {
+        await Html.RenderPartialAsync("TableRow", playlist);
+    }
+</table>

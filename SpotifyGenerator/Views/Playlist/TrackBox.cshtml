@@ -1,0 +1,38 @@
+﻿@using SpotifyGen.Domain;
+@model TrackDTO
+
+@{
+    <div id=@Model.id class="songholder" style="margin: auto; margin-bottom:10px">
+        <div class="songbox" onmousemove="ChangeBackground('@Model.album.images[0].url')">
+            <a href="@Model.external_urls.spotify" target="_blank">
+                <img src="@Model.album.images[1].url" alt="Not found" class="songimg" title="@Model.name"/>
+            </a>
+            <a href="@Model.external_urls.spotify" class="songtxt" target="_blank" style="position:relative;float:left;margin:2px;text-decoration:none">@Model.name</a>
+            <div style="position: absolute; bottom: 3px; left: 87px">
+                @foreach (var artist in Model.artists)
+                {
+                    <a href="@artist.external_urls.spotify" class="artisttxt" target="_blank">@artist.name</a>
+                    @if (Model.artists.Last() != artist)
+                    {
+                        <a class="artisttxt"> ; </a>
+                    }
+                }
+            </div>
+            @if (Model.preview_url != null)
+            {
+                <audio controls controlslist="nodownload" class="audio">
+                    <source src="@Model.preview_url" type="audio/mpeg">
+                </audio>
+            }
+            @if (Model.Explicit)
+            {
+                <div class="explicitbox">
+                    <a style="font-weight: bold; color:#d61102; margin: 2px;vertical-align: middle;" class="txt"> EXPLICIT </a>
+                </div>
+            }
+        </div>
+        <button id="@Model.id" class="DeleteButton" onclick="RemoveTrack(this.id)" title="remove @Model.name from playlist">
+            <p class="deletetxt"> ✖ </p>
+        </button>
+    </div>
+}

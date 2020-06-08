@@ -1,0 +1,17 @@
+﻿<a class="txt" style="font-size: 70px">@Model.Question</a>
+
+<div style="margin-top: 7%">
+    <a class="txt" style="font-size: 20px; font-weight: bold"> A little </a>
+    <input id="input" style="margin: 40px" class="slider" type="range" min="0" max="1" step="0.01">
+    <a class="txt" style="font-size: 20px; font-weight: bold"> A lot </a>
+    <div style="position: absolute;bottom: 0;text-align: center;width: 100%;margin-bottom: 20px;">
+        <button style="bottom:10px" class="click" onclick="GetValue()"><h4 class="txt"> Next </h4></button>
+    </div>
+</div>
+
+<script>
+    function GetValue() {
+        var value = document.getElementById("input").value;
+        NextQuestion(value);
+    }
+</script>

@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "questionpage";
+}
+
+<div id="Questionbox" style="text-align: center"></div>
+
+<script>
+    $(document).ready(function () {
+        GetQuestion();
+    });
+</script>
+
+<script>
+    function GetQuestion() {
+        $.ajax({
+            url: "@Url.Action("GetQuestion", "Question")",
+            success: function (result) {
+                if (result.redirect != null) {
+                    window.location.href = result.redirect;
+                }
+                else {
+                    $("#QuestionBox").empty();
+                    $("#Questionbox").html(result);
+                }
+            },
+            error: function() {
+                alert("Error: Cannot load question");
+            }
+        });
+    }
+</script>
+
+<script> 
+    function NextQuestion(value) {
+        $.ajax({
+            url: "@Url.Action("NextQuestion","Question")",
+            data: { "input": value },
+            success: function () {
+                GetQuestion()
+            },
+            error: function() {
+                alert("Error: Cannot move to next question");
+            }
+        });
+    }
+</script>

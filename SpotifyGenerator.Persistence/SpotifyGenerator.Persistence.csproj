@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200523132855_initialmigration.cs" />
+    <Compile Remove="Migrations\20200523132855_initialmigration.Designer.cs" />
+    <Compile Remove="Migrations\20200523140736_addedplaylists.cs" />
+    <Compile Remove="Migrations\20200523140736_addedplaylists.Designer.cs" />
+    <Compile Remove="Migrations\20200523140922_AddedPlaylists.cs" />
+    <Compile Remove="Migrations\20200523140922_AddedPlaylists.Designer.cs" />
+    <Compile Remove="Migrations\20200523141116_addedplaylist.cs" />
+    <Compile Remove="Migrations\20200523141116_addedplaylist.Designer.cs" />
+    <Compile Remove="Migrations\20200523141527_playlist.cs" />
+    <Compile Remove="Migrations\20200523141527_playlist.Designer.cs" />
+    <Compile Remove="Migrations\20200523143321_playlist.cs" />
+    <Compile Remove="Migrations\20200523143321_playlist.Designer.cs" />
+    <Compile Remove="Migrations\20200523144355_playlists.cs" />
+    <Compile Remove="Migrations\20200523144355_playlists.Designer.cs" />
+    <Compile Remove="Migrations\20200523144849_playlist.cs" />
+    <Compile Remove="Migrations\20200523144849_playlist.Designer.cs" />
+    <Compile Remove="Migrations\20200523145219_plalis.cs" />
+    <Compile Remove="Migrations\20200523145219_plalis.Designer.cs" />
+    <Compile Remove="Migrations\20200523145537_playlisttest.cs" />
+    <Compile Remove="Migrations\20200523145537_playlisttest.Designer.cs" />
+    <Compile Remove="Migrations\20200523145630_playlist.cs" />
+    <Compile Remove="Migrations\20200523145630_playlist.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpotifyGenerator.Domain\SpotifyGenerator.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
