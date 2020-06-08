@@ -6,7 +6,7 @@ namespace SpotifyGenerator.Tests.Logic
 {
     public class ArtistServiceTests
     {
-        ArtistService artistService = new ArtistService(null);
+        ArtistService artistService = new ArtistService();
         ArtistDTO artistDTO1 = new ArtistDTO {id= "2Ex4vjQ6mSh5woTlDWto6d", name= "Masayoshi Takanaka"};
         ArtistDTO artistDTO2 = new ArtistDTO { id = "5FsfZj0Mp6YwEWytuJUcWt", name = "Jinsang"};
 

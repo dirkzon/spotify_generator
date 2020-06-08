@@ -14,6 +14,10 @@ namespace SpotifyGenerator.Logic.services
         private readonly IPlaylistRepository _playlistAccess;
         public Playlist playlist;
 
+        public PlaylistService ()
+	    {
+	    }
+
         public PlaylistService(IPlaylistRepository access)
         {
             _playlistAccess = access;

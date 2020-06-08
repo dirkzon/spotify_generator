@@ -13,6 +13,10 @@ namespace SpotifyGenerator.Logic.services
 
         public List<Artist> Artists { get; set; } = new List<Artist>();
 
+        public ArtistService ()
+	    {
+	    }
+
         public ArtistService(IArtistRepository repository)
         {
             _artistRepository = repository;

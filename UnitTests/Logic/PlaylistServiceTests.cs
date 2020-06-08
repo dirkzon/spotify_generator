@@ -12,7 +12,7 @@ namespace SpotifyGenerator.Tests
 
         public PlaylistServiceTests()
         {
-            playlistService = new PlaylistService(null);
+            playlistService = new PlaylistService();
             playlistService.playlist = new Playlist();
             track1 = new Track
             {
