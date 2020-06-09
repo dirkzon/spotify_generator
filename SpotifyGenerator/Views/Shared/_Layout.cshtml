@@ -9,6 +9,22 @@
     <body style="background-color: #2C2F33; margin: 0px">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <img id="backimg" src="" class="backgroundimg" />
+
+        @if (ViewBag.Title != "Home")
+        {
+            <div style="width: 500px;top: 0px;left: 0px;height: 500px;background-color: #9e9e9e;position: fixed;transform: rotate(45deg) translate(-355px) scale(0.75);">
+                <a href="/home">
+                    <img title="Home" class="slogo" src="~/Spotify_logo_without_text.svg" alt="Spotify Logo" />
+                </a>
+            </div>
+        }
+        else
+        {
+            <div style="text-align:center;margin:15%">
+                <a class="txt" style="font-size:100px"> Playlist Generator</a>
+            </div>           
+        }
+
         <div class="center">
             @RenderBody()
         </div>

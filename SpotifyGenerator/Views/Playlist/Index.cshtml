@@ -1,7 +1,12 @@
 ﻿@model SpotifyGen.Domain.PlaylistDTO;
 
-@foreach (var track in Model.tracks){
-   await Html.RenderPartialAsync("TrackBox", track);
+@{
+    ViewData["Title"] = "Playlist";
+}
+
+@foreach (var track in Model.tracks)
+{
+    await Html.RenderPartialAsync("TrackBox", track);
 }
 
 <form asp-controller="Playlist" asp-action="PostPlaylist" method="POST">
