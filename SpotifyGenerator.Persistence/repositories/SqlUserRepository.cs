@@ -17,6 +17,16 @@ namespace SpotifyGenerator.Persistence.repositories
             return _context.Users.Find(id);
         }
 
+        public bool CheckIfUserExists(string id)
+        {
+            var user = GetUser(id);
+            if (user != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public DbUserDTO SaveUser(DbUserDTO user)
         {
             _context.Users.Add(user);

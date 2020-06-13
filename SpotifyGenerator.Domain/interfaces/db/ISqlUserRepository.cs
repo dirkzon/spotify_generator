@@ -6,5 +6,6 @@ namespace SpotifyGenerator.Domain.interfaces
     {
         DbUserDTO GetUser(string id);
         DbUserDTO SaveUser(DbUserDTO user);
+        bool CheckIfUserExists(string id);
     }
 }
