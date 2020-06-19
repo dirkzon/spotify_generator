@@ -3,7 +3,6 @@ using Newtonsoft.Json.Linq;
 using SpotifyGenerator.Domain.DataTransferObjects;
 using SpotifyGenerator.Domain.interfaces;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -18,6 +17,7 @@ namespace SpotifyGenerator.ApiWrapper
             _client = clientFactory.CreateClient("Spotify"); 
         }
 
+        //naar artiesten zoeken aan de hand van een naam
         public async Task<IEnumerable<ArtistDTO>> SearchArtist(string name, string token)
         {
             _client.DefaultRequestHeaders.Clear();

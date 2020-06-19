@@ -14,6 +14,7 @@ namespace SpotifyGenerator.Logic.services
             _userAccess = access;
         }
 
+        //haalt de info van de gebruiker op
         public async Task<UserDTO> CreateUser(string token)
         {
             return await _userAccess.GetUser(token);

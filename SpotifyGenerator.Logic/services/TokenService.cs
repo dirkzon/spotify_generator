@@ -12,6 +12,7 @@ namespace SpotifyGenerator.Logic.services
             _tokenAccess = access;
         }
 
+        //haalt een token op aan de hand van de code
         public async Task<string> GetToken(string code, string redirect)
         {
             return await _tokenAccess.GetAccessToken(code, redirect);

@@ -9,12 +9,16 @@ namespace SpotifyGenerator.Persistence
         {
         }
 
+        //lijst van gebruikers
         public DbSet<DbUserDTO> Users { get; set; }
 
+        //lijst van eerder gemaakte playlists
         public DbSet<DbPlaylistDTO> Playlists { get; set; }
 
+        //lijst van attributes
         public DbSet<DbAttribute> Attributes { get; set; }
-
+        
+        //lijst van vragen
         public DbSet<DbQuestionDTO> Questions { get; set; }
     }
 }

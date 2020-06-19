@@ -12,9 +12,9 @@ namespace SpotifyGenerator.ApiWrapper
         public UserRepository(IHttpClientFactory clientFactory)
         {
             _client = clientFactory.CreateClient("Spotify");
-            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + GlobalToken.Token);
         }
 
+        //info van de gebruiker ophalen
         public async Task<UserDTO> GetUser(string token)
         {
             _client.DefaultRequestHeaders.Clear();

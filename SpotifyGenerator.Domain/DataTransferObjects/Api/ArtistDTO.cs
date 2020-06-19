@@ -1,4 +1,4 @@
-﻿using SpotifyGen.Domain;
+﻿    using SpotifyGen.Domain;
 using System;
 
 namespace SpotifyGenerator.Domain.DataTransferObjects

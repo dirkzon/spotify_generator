@@ -28,6 +28,7 @@ namespace SpotifyGenerator.Controllers
             return View();
         }
 
+        //haalt vraag uit de database, als de gebruiker vijf vragen heeft beantwoordt wordt de gebruiker doorgestuurd
         public IActionResult GetQuestion()
         {
             if (index < 5)
@@ -40,6 +41,12 @@ namespace SpotifyGenerator.Controllers
                 return PartialView("SliderBox", questionmodel);
             }
             HttpContext.Session.SetObjectAsJson("Answers", questionService.GetAnswers());
+            return SpotifyLogIn();
+        }
+
+        //stuurt de gebruiker naar een pagina van Spotify waar hij/zij in kan loggen
+        public IActionResult SpotifyLogIn()
+        {
             QueryBuilder qb = new QueryBuilder();
             qb.Add("response_type", "code");
             qb.Add("client_id", Configuration["Authorization:ClientId"]);
@@ -49,6 +56,7 @@ namespace SpotifyGenerator.Controllers
             return Json(new {redirect = url });
         }
 
+        //genereert de waarde van het antwoord aan de hand van de input en het algoritme en voegt deze waarde toe aan een lijst
         public void NextQuestion(double input)
         {
             var answer = Algorithm.GetValue(questionService.GetAnswers().ToList(), input);

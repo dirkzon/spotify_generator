@@ -2,6 +2,7 @@
     ViewData["Title"] = "Questions";
 }
 
+@* div waar de vraag in komt *@
 <div id="Questionbox" style="text-align: center"></div>
 
 <script>
@@ -10,6 +11,7 @@
     });
 </script>
 
+@* haalt een vraag uit de database *@
 <script>
     function GetQuestion() {
         $.ajax({
@@ -30,6 +32,7 @@
     }
 </script>
 
+@* gaat naar de volgende vraag *@
 <script> 
     function NextQuestion(value) {
         $.ajax({

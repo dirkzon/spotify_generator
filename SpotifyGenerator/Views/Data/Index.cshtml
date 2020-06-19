@@ -25,6 +25,8 @@
     <button class="click"> <h4 class="txt">Create playlist</h4> </button>
 </form>
 
+
+@* zoekt naar artiesten aan de hand van de naam *@
 <script>
     function SearchArtist() {
         var input = document.getElementById("artistinput").value;
@@ -41,6 +43,8 @@
     }
 </script>
 
+
+@* voegt de artiest toe aan de lijst  *@
 <script>
     function AddArtistToList(name, id) {
         $.ajax({
@@ -55,6 +59,7 @@
     }
 </script>
 
+@* verwijdert de artiest uit de lijst *@
 <script>
     function RemoveArtistFromList(id) {
         $.ajax({
@@ -67,6 +72,7 @@
     }
 </script>
 
+@* haalt alle artiesten uit de lijst *@
 <script>
     $(document).ready(GetAllArtists());
 

@@ -1,6 +1,7 @@
 ﻿@using SpotifyGen.Domain;
 @model TrackDTO
 
+@* een div met alle data van het lied, zoals de naam, afbeeldingen en artiesten *@
 @{
     <div id=@Model.id class="songholder" style="margin: auto; margin-bottom:10px">
         <div class="songbox" onmousemove="ChangeBackground('@Model.album.images[0].url')">

@@ -18,6 +18,7 @@ namespace SpotifyGenerator.ApiWrapper.apiaccess
             }
         }
 
+        //een access token aanvragen aan de hand van de code, deze code heeft onder andere de info van de gebruiker
         public async Task<string> GetAccessToken(string code, string redirect)
         {
             HttpContent content = new FormUrlEncodedContent(new[]

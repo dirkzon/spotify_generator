@@ -13,6 +13,7 @@ namespace SpotifyGenerator.Persistence.repositories
             _context = context;
         }
 
+        //haalt een vraag uit de database aan de van een attribute
         public DbQuestionDTO GetQuestionByAttribute(string Attribute)
         {
             return _context.Questions.Single(Q =>Q.Attribute == Attribute);

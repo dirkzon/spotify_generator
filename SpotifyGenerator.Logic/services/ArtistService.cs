@@ -22,12 +22,14 @@ namespace SpotifyGenerator.Logic.services
             _artistRepository = repository;
         }
 
+        //naar artiesten zoeken aan de hand van een naam
         public async Task<List<ArtistDTO>> SearchForArtist(string artistname, string token)
         {
             var artistlist = await _artistRepository.SearchArtist(artistname, token);
             return artistlist.Take(5).Where(artist => artist.popularity > 35).ToList();
         }
 
+        //een artiest toeveogen aan de lijst van artiesten
         public ArtistDTO AddArtistToList(ArtistDTO artistdto)
         {
             Artist artist = new Artist
@@ -39,12 +41,14 @@ namespace SpotifyGenerator.Logic.services
             return artistdto;
         }
 
+        //een artiest uit de lijst halen aan de hand van de id
         public string RemoveArtistById(string artistid)
         {
             Artists.RemoveAll(artist => artist.Artistid == artistid);
             return artistid;
         }
 
+        //alle id's van de ariesten in een string zetten
         public string GetAllArtistIds()
         {
             string artistids = string.Empty;
@@ -55,6 +59,7 @@ namespace SpotifyGenerator.Logic.services
             return artistids;
         }
 
+        //geeft een lijst van artiesten
         public List<ArtistDTO> GetAllArtists()
         {
             var artistreturnlist = new List<ArtistDTO>();

@@ -4,6 +4,7 @@
     ViewData["Title"] = "Playlist";
 }
 
+@* laat alle liedjes in de playlist zien *@
 @foreach (var track in Model.tracks)
 {
     await Html.RenderPartialAsync("TrackBox", track);
@@ -13,6 +14,7 @@
     <button class="click"><h4 class="txt"> Put playlist on account </h4></button>
 </form>
 
+@* verwijdert een lied uit de playlist aan de hand van de id *@
 <script>
     function RemoveTrack(id){
         $.ajax({
@@ -29,6 +31,7 @@
     }
 </script>
 
+@* verandert de achtergrond van de pagina naar de cover van het liedje *@
 <script>
     function ChangeBackground(url) {
         document.getElementById('backimg').src = url;

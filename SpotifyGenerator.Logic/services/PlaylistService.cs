@@ -23,6 +23,7 @@ namespace SpotifyGenerator.Logic.services
             _playlistAccess = access;
         }
 
+        //maakt een playlist aan aan de hand van de gegeven data
         public async Task<PlaylistDTO> CreatePlaylist(string playlistname, int limit, string artistid, string token, double[] answers)
         {
             var respone = await _playlistAccess.CreatePlaylist(limit, artistid, token, answers);
@@ -40,6 +41,7 @@ namespace SpotifyGenerator.Logic.services
             return respone;
         }
 
+        //zet de playlist op het account van de gebruiker
         public async Task<DbPlaylistDTO> PostPlaylist(UserDTO user, string token)
         {
             var postplaylist = new PostPlaylistDTO { 
@@ -58,12 +60,14 @@ namespace SpotifyGenerator.Logic.services
             return result;
         }
 
+        //en lied uit de playlist halen aan de hand van de id
         public string RemoveTrack(string trackid)
         {
             playlist.RemoveTrack(trackid);
             return trackid;
         }
 
+        //geeft alle uri's van de liedjes
         public string GetAllUris()
         {
             return playlist.GetUris();

@@ -1,11 +1,13 @@
 ﻿@using SpotifyGenerator.Domain.DataTransferObjects
 @model List<ArtistDTO>
 
+@* bericht als er geen artiesten zijn gevonden *@
 @if (!@Model.Any())
 {
     <h2 class="txt"> no artists found </h2>
 }
 
+@* lijst van artiesten die zijn gevonden *@
 @foreach (var artist in @Model)
 {
     <div style="width:400px;height:60px; cursor: pointer;border-bottom: 2px solid #2c2f33">

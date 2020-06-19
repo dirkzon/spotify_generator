@@ -6,6 +6,7 @@ namespace SpotifyGenerator.ApiWrapper
 {
     public static class ApiContext
     {
+        //een get call maken naar de api met een httpclient en een requesturl
         public static async Task<T> Get<T>(HttpClient client, string requesturl)
         {
             using (HttpResponseMessage response = await client.GetAsync(requesturl))
@@ -21,6 +22,8 @@ namespace SpotifyGenerator.ApiWrapper
                 }
             }
         }
+
+        //een post call maken naar de api met een httpclient requesturl en content
         public static async Task<T> Post<T>(HttpClient client, string requesturl, HttpContent content)
         {
             using (HttpResponseMessage response = await client.PostAsync(requesturl, content))

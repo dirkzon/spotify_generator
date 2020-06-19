@@ -20,6 +20,7 @@ namespace SpotifyGenerator.ApiWrapper.apiaccess
             _client = clientFactory.CreateClient("Spotify");
         }
 
+        //naar liedjes zoeken voor de playlist aan de hand van de hoeveelheid liedjes, artiest(en) en de antwoorden op de vragen
         public async Task<PlaylistDTO> CreatePlaylist(int limit, string artistid, string token, double[] answers)
         {
             _client.DefaultRequestHeaders.Clear();
@@ -35,6 +36,7 @@ namespace SpotifyGenerator.ApiWrapper.apiaccess
             return await ApiContext.Get<PlaylistDTO>(_client, url);
         }
         
+        // de playlist op het account van de gebruiker zetten
         public async Task<string> PostPlaylist(PostPlaylistDTO playlist, UserDTO user, string token)
         {
             _client.DefaultRequestHeaders.Clear();
@@ -46,8 +48,10 @@ namespace SpotifyGenerator.ApiWrapper.apiaccess
             };
             var json = JsonConvert.SerializeObject(properties);
             var content  = new StringContent(json);
+            //een lege playlist op het account zetten met een naam en omschrijving
             var response = await ApiContext.Post<JObject>(_client, $"https://api.spotify.com/v1/users/{user.id}/playlists", content);
 
+            //de playlist vullen met de liedjes
             await ApiContext.Post<JObject>(_client, $"https://api.spotify.com/v1/playlists/{response["id"]}/tracks?uris={playlist.Uris}", null);
             return response["id"].ToString();
         }

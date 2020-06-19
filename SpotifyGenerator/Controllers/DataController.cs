@@ -38,23 +38,27 @@ namespace SpotifyGenerator.Controllers
             return View("Index");
         }
 
+        //zoekt voor een artiest
         public async Task<IActionResult> SearchForArtist(string artistname)
         {
             var model = await artistService.SearchForArtist(artistname, Token);
             return PartialView("ArtistSearchList", model);
         }
 
+        //voegt de artiest toe aan de lijst
         public void AddArtist(string artistname, string artistid)
         {
             var dto = new ArtistDTO {name = artistname, id = artistid };
             artistService.AddArtistToList(dto);
         }
 
+        //verwijdert de artiest uit de lijst
         public void RemoveArtist(string artistid)
         {
             artistService.RemoveArtistById(artistid);
         }
 
+        //haalt alle artiesten uit de lijst
         public IActionResult GetAllArtist()
         {
             var model = artistService.GetAllArtists();

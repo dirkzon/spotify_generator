@@ -12,11 +12,13 @@ namespace SpotifyGenerator.Persistence.repositories
             _context = context;
         }
 
+        //haalt een gebruiker uit de database aan de hand van een id
         public DbUserDTO GetUser(string id)
         {
             return _context.Users.Find(id);
         }
 
+        //kijkt of de gebruiker in de database bestaat
         public bool CheckIfUserExists(string id)
         {
             var user = GetUser(id);
@@ -27,6 +29,7 @@ namespace SpotifyGenerator.Persistence.repositories
             return false;
         }
 
+        //slaat de gebruiker op in de database
         public DbUserDTO SaveUser(DbUserDTO user)
         {
             _context.Users.Add(user);

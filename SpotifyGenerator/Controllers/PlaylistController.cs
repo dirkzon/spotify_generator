@@ -38,11 +38,13 @@ namespace SpotifyGenerator.Controllers
             return View(playlistmodel);
         }
 
+        //verwijdert een lied uit de playlist
         public void RemoveTrack(string trackid)
         {
             playlistService.RemoveTrack(trackid);
         }
 
+        //zet de playlist op het account van de gebruiker
         public async Task<IActionResult> PostPlaylist()
         {
             var user = await userService.CreateUser(Token);
